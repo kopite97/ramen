@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         try{
-            RamenCook ramenCook = new RamenCook(4); // 스레드 4개를 시작합니다. 생성자로 라면의 갯수를 넣어줍니다. (int)
+            RamenCook ramenCook = new RamenCook(6); // 스레드 4개를 시작합니다. 생성자로 라면의 갯수를 넣어줍니다. (int)
             new Thread(ramenCook,"A").start(); // 가장 먼저 "A" 이름을 가진 라면(쓰레드)이 조리됩니다.
             new Thread(ramenCook,"B").start();
             new Thread(ramenCook,"C").start();
@@ -59,7 +59,7 @@ class RamenCook implements Runnable{ // Runnable인터페이스를 구현합니�
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                }
+                } // 이 반복문이 끝나고 락이 해제되면 어떤 쓰레드가 들어갈 지는 알 수 없습니다.
             }
         }
     }
